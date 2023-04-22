@@ -8,7 +8,7 @@ fn main() {
     println!("Choose an operator you may choose from the following:");
     println!("+ for addition");
     println!("- for subtraction");
-    println!("x or * for mutiplication");
+    println!("* for mutiplication");
     println!("/ for division");
     println!("** to raise x to the power of y");
     let binding = readline();
@@ -21,21 +21,28 @@ fn main() {
         Ok(num) => num,
         Err(_) => 1.0,
     };
-    if opp == "+"{
+    match opp{
+    "+"=>{
         let finalnum = add(x,y);
         println!("{x}+{y}={finalnum}");
-    } else if opp == "-"{
+    }
+    "-"=>{
         let finalnum = sub(x, y);
         println!("{x}+{y}={finalnum}");
-    } else if opp == "x" || opp == "*"{
+    }
+    "*" => {
         let finalnum = multipy(x, y);
         println!("{x}*{y}={finalnum}");
-    } else if opp == "/" {
+    }
+   "/" =>{
         let finalnum = divide(x,y);
         println!("{x}/{y}={finalnum}");
-    } else if opp == "**"{
+   }
+    "**"=>{
         let finalnum=expoent(x, y);
         println!("{x}**{y}={finalnum}")
+    }
+    &_ => println!("not valid!")
     }
 }
 fn add(x:f64, y:f64) -> f64 {
